@@ -112,7 +112,7 @@ git clone https://github.com/jjnc2006/Covid19_Colombia.git
 
 1. The jupyter notebook has all the explanation about the processes done with pandas to manipulate the source data. Feel free to change as you which.
 
-2. To see the original chart bar race in tableau go to [https://public.tableau.com/profile/datamadness/](https://public.tableau.com/profile/datamadness/#!/vizhome/colombia_covid_viz_ciudades/CasosCovid-19enColombia)
+2. To see the original chart bar race in tableau go to [Tableau Profile](https://public.tableau.com/profile/datamadness/#!/vizhome/colombia_covid_viz_ciudades/CasosCovid-19enColombia)
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -137,7 +137,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE` for more information.
+Distributed under the GNU GENERAL PUBLIC LICENSE. See [LICENSE](https://github.com/jjnc2006/Covid19_Colombia/blob/master/LICENSE.txt) for more information.
 
 
 
