@@ -65,8 +65,8 @@ oriented to export the panda's data frame to a Tableau file, those libraries are
 the result data in a bar chart race I choose Tableau.
 </p>
 <p align="center">
-  <a href="https://github.com/jjnc2006/Covid19_Colombia/blob/master/images/screenshoot.png">
-    <img src="images/screenshoot.png">
+  <a href="https://github.com/jjnc2006/Covid19_Colombia/blob/master/">
+    <img src="images/screenshot.png">
   </a>
 
 ### Built With
