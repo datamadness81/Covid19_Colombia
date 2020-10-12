@@ -1,0 +1,3407 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20203.20.0918.1727                               -->
+<workbook original-version='18.1' source-build='2020.3.1 (20203.20.0918.1727)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <CustomReferenceLineTooltips />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SymmetricLogAxis />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <repository-location id='colombia_covid_viz_ciudades' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style>
+    <_.fcp.MarkAnimation.true...style-rule element='animation'>
+      <format attr='animation-on' value='ao-on' />
+    </_.fcp.MarkAnimation.true...style-rule>
+  </style>
+  <datasources>
+    <datasource caption='df_colombia_covid19 Extract' inline='true' name='federated.1heur710i36uig1farh4f0gx6dkd' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='df_colombia_covid19' name='hyper.001pufu0ismmnb1brhcij0fe8squ'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/johnjairo.ramirez/Documents/GitHub/Covid19_Colombia/df_colombia_covid19.hyper' default-settings='yes' server='' sslmode='' username='tableau_internal_user' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='hyper.001pufu0ismmnb1brhcij0fe8squ' name='Extract' table='[Extract].[Extract]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='hyper.001pufu0ismmnb1brhcij0fe8squ' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>FECHA_CONTAGIO</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[FECHA_CONTAGIO]</local-name>
+            <parent-name>[Extract]</parent-name>
+            <remote-alias>FECHA_CONTAGIO</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <approx-count>308</approx-count>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_A2446189F50B416986749427371AA4B0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CIUDAD</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CIUDAD]</local-name>
+            <parent-name>[Extract]</parent-name>
+            <remote-alias>CIUDAD</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>5218</approx-count>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_A2446189F50B416986749427371AA4B0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CASOS_DIARIOS</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[CASOS_DIARIOS]</local-name>
+            <parent-name>[Extract]</parent-name>
+            <remote-alias>CASOS_DIARIOS</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <approx-count>283</approx-count>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_A2446189F50B416986749427371AA4B0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CASOS_TOTALES</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[CASOS_TOTALES]</local-name>
+            <parent-name>[Extract]</parent-name>
+            <remote-alias>CASOS_TOTALES</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <approx-count>1670</approx-count>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_A2446189F50B416986749427371AA4B0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Casos Diarios' datatype='integer' name='[CASOS_DIARIOS]' role='measure' type='quantitative' />
+      <column caption='Casos Totales' datatype='integer' name='[CASOS_TOTALES]' role='measure' type='quantitative' />
+      <column caption='Ciudad' datatype='string' name='[CIUDAD]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Rank' datatype='integer' name='[Calculation_680325054285357056]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='RANK_UNIQUE(SUM([CASOS_TOTALES]),&apos;desc&apos; )'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Fecha Contagio' datatype='datetime' name='[FECHA_CONTAGIO]' role='dimension' type='ordinal' />
+      <_.fcp.ObjectModelTableType.true...column caption='Extract' datatype='table' name='[__tableau_internal_object_id__].[Extract (Extract.Extract)_A2446189F50B416986749427371AA4B0]' role='measure' type='quantitative' />
+      <column-instance column='[CIUDAD]' derivation='None' name='[none:CIUDAD:nk]' pivot='key' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:CIUDAD:nk]' palette='tableau20_10_0' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Agua de Dios&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Amalfi&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Aratoca&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Bahía Solano&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Belmira&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Buesaco&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;California&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Carolina&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Chimá&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Ciénaga&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Contadero&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Cucutilla&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;El Guacamayo&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;El Águila&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Elías&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Envigado&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Fosca&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Guachucal&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Guayatá&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Gámbita&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;La Ceja&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;La Pintada&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Líbano&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Maicao&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Marsella&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Mongua&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Montería&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Nátaga&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Ocaña&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Paime&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Patía&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Piojó&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Puebloviejo&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Puerto Rico&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Ramiriquí&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Rivera&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Samacá&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;San Andrés de Tumaco&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;San Cayetano&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;San Juan de Betulia&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;San Pedro de Cartago&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Santa Isabel&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Saravena&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Soatá&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Sucre&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Tarapacá&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Timaná&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Trujillo&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Uribe&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Vetas&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Viracachá&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Zipacón&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Íquira&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Abejorral&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Algarrobo&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Anzá&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Barranco Minas&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Bogotá D.C.&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Bosconia&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Buenaventura&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Cajamarca&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Cerro de San Antonio&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Chita&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Colón&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Covarachía&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Cáqueza&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Dibulla&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;El Charco&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;El Roble&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Florencia&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Gachancipá&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;González&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Guasca&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Honda&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Juan de Acosta&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;La Llanada&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Labateca&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Luruaco&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Mapiripán&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Miranda&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Morroa&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Norosí&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Ovejas&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Pamplonita&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Piamonte&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Potosí&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Puerto Guzmán&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Quebradanegra&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Río Quito&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;San Antonio del Tequendama&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;San José&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;San Martín&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;San Zenón&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Santana&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Silvania&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Soracá&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Sáchica&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Talaigua Nuevo&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Teorama&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Tolú Viejo&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Ubalá&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Valparaíso&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Villamaría&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Yotoco&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Acandí&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Alto Baudó&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Apulo&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Ataco&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Belén&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Bucarasica&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Calarcá&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Carepa&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Cartagena de Indias&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Cartago&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Chaparral&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Chivolo&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Concordia&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Cubará&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;El Doncello&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;El Tablón de Gómez&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Galapa&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Guacamayas&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Guateque&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Imués&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;La Argentina&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;La Montañita&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Lejanías&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Madrid&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Marinilla&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Mogotes&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Mutatá&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Nunchía&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Padilla&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Pereira&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Pijao&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Pueblo Bello&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Puerto López&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Páramo&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Quinchía&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Riohacha&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Salazar&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;San Bernardo del Viento&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;San José del Fragua&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;San Onofre&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Santa Bárbara de Pinto&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Santo Domingo&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Simití&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Suan&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Tibaná&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Toro&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Támesis&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Une&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Venecia&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Zapayán&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Aguazul&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Andalucía&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Arboleda&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Baraya&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Betulia&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Cabuyaro&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Campo de la Cruz&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Carurú&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Chinchiná&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Circasia&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Coper&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Cumbal&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;El Cantón San Pablo&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;El Paso&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Frontino&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Guaitarilla&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Génova&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Hato&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Ipiales&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;La Cumbre&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;La Sierra&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;López de Micay&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Mallama&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Medina&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Montecristo&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Neira&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Olaya Herrera&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Palestina&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Paz de Río&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Planadas&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Puerto Berrío&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Puerto Tejada&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Remedios&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Rovira&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;San Agustín&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;San Felipe&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;San Juan Nepomuceno&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;San Rafael&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Santa Rosa&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Sativasur&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Sogamoso&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Soledad&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Suratá&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Tasco&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Tipacoque&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Tunja&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Usiacurí&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Vijes&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Yacuanquer&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Aguachica&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Ambalema&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Arauca&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Bajo Baudó&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Beltrán&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Bugalagrande&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Calima&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Chima&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Ciénaga de Oro&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Contratación&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Cuítiva&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;El Bagre&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;El Guamo&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Encino&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Floridablanca&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Francisco Pizarro&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Gámeza&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Güepsa&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Isnos&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;La Celia&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;La Plata&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Liborina&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Majagual&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Marulanda&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Monguí&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Natagaima&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Oiba&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Paipa&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Pauna&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Pital&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Puente Nacional&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Puerto Rondón&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Roberto Payán&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Ráquira&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Samaná&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;San Cristóbal&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;San Juan de Rioseco&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;San Pedro de Urabá&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Santa Lucía&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Sardinata&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Socha&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Suesca&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Tarazá&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Timbío&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Tubará&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Uribia&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Vianí&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Vistahermosa&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Zipaquirá&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Acevedo&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Altos del Rosario&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Aquitania&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Atrato&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Belén de los Andaquíes&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Caldas&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Carmen de Apicalá&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Charalá&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Choachí&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Chía&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Condoto&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Cucaita&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Duitama&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;El Dorado&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;El Tambo&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Fómeque&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Galeras&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Guacarí&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Guática&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Inírida&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;La Belleza&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;La Palma&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Lenguazaque&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Magangué&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Maripí&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Medellín&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Molagavita&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Mutiscua&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Nuquí&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Paratebueno&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Pijiño del Carmen&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Popayán&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Pueblo Nuevo&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Puerto Nare&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Páez&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Quípama&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Saldaña&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;San Calixto&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;San José del Guaviare&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;San Pablo&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Santa Catalina&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Santo Tomás&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Suárez&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Taminango&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Tibasosa&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Tota&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Unguía&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Ventaquemada&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Villavieja&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Zaragoza&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Aldana&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Anserma&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Ariguaní&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Barrancas&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Bojayá&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Caicedonia&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Caparrapí&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Cerinza&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Chiriguaná&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Cogua&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Cota&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Dabeiba&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;El Castillo&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;El Retén&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Firavitoba&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Fusagasugá&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Girón&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Guaranda&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Hispania&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Jericó&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;La Jagua de Ibirico&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;La Victoria&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Los Santos&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Manizales&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Manta&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Milán&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Morales&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Nocaima&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Ospina&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Palocabildo&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Puerto Escondido&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Purificación&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Río de Oro&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Saboyá&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;San Antero&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;San Jerónimo&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;San Luis de Sincé&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;San Vicente del Caguán&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Santa Sofía&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Sibundoy&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Soplaviento&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Tabio&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Tenjo&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Togüí&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Turmequé&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Valle del Guamuez&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Villagarzón&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Yondó&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Algeciras&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Anzoátegui&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Armero&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Boyacá&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Cajibío&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Cajicá&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Caracolí&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Chitagá&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Coloso&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Coveñas&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Cértegui&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Distracción&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;El Cocuy&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;El Rosal&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Floresta&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Gachantivá&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Gramalote&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Guatapé&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Junín&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;La Macarena&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Landázuri&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Macaravita&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Mapiripana&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Mistrató&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Mosquera&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Neiva&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Nóvita&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Pachavita&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Pana Pana&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Piedecuesta&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Pradera&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Puerto Leguízamo&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Quetame&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Río Viejo&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Sahagún&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;San Benito&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;San José de Miranda&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;San Martín de Loba&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Sandoná&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Santa Marta&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Santander de Quilichao&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Silvia&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Sotaquirá&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Tamalameque&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Teruel&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Tona&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Ubaque&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Vegachí&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Villanueva&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Yumbo&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Ábrego&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Albania&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Anolaima&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Arenal&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Barranca de Upía&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Cantagallo&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Cepitá&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Chiquinquirá&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Cocorná&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Corozal&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Curití&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Cácota&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;El Carmen de Chucurí&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;El Piñón&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Filadelfia&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Funza&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Girardot&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Guapí&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Herrán&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Jardín&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;La Florida&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;La Uvita&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Leticia&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Los Palmitos&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Maní&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Mercaderes&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Monterrey&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Nimaima&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Orocué&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Peñol&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Polonuevo&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Puerto Colombia&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Pupiales&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Retiro&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Sabanas de San Ángel&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;San Andrés de Sotavento&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;San Jacinto&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;San Luis de Gaceno&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;San Sebastián de Mariquita&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Santa Rosa del Sur&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Siachoque&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Sonsón&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Sutatausa&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Tena&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Tocaima&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Turbaná&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Valle de San José&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Villa del Rosario&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Yavaraté&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Achí&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Alvarado&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Aracataca&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Ayapel&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Belén de Umbría&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Buenavista&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Caldono&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Carmen de Carupa&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Chocontá&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Confines&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Cucunubá&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Cúcuta&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Durania&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;El Dovio&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;El Tarra&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Fonseca&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Gama&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Guachené&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Guavatá&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Inzá&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;La Calera&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;La Paz&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Lérida&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Magüí&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Marmato&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Momil&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Muzo&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Obando&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Paicol&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Pasca&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Pinchote&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Pueblo Rico&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Puerto Nariño&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Quibdó&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Quipile&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Riosucio&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Salento&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;San Carlos&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;San José la Montaña&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;San Pablo de Borbur&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Santa Fé de Antioquia&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Santuario&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Sitionuevo&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Suaza&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Tangua&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Tibú&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Totoró&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Unión Panamericana&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Vergara&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Villeta&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Zarzal&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Agustín Codazzi&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Andes&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Arboledas&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Barbacoas&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Bituima&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Campoalegre&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Casabianca&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Chinú&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Cisneros&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Cumbitara&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Cáceres&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Córdoba&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;El Carmen&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;El Paujíl&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Espinal&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Fuente de Oro&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Gigante&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Gualmatán&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Hato Corozal&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Itagüí&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Iza&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;La Tebaida&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Lorica&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Manatí&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Medio Baudó&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Montelíbano&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Onzaga&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Palmar&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Pedraza&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Planeta Rica&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Puerto Boyacá&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Puerto Triunfo&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Remolino&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Sabana de Torres&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;San Alberto&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;San Fernando&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;San Lorenzo&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;San Roque&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Santa Rosa de Cabal&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Segovia&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Solano&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Susa&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Tauramena&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Tiquisio&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Tununguá&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Valledupar&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Villa Caro&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Yaguará&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Útica&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Aipe&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Anapoima&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Angelópolis&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Arboletes&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Barbosa&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Boavita&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Cachipay&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Canalete&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Castilla la Nueva&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Chipaque&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Ciudad Bolívar&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Corinto&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Cunday&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;El Carmen de Atrato&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;El Peñol&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Facatativá&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Fundación&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Ginebra&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Guamal&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Hatonuevo&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Ituango&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Jambaló&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;La Esperanza&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;La Tola&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Los Andes&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Manaure&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Medio San Juan&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Montenegro&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Nemocón&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Oporapa&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Palmar de Varela&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Pelaya&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Plato&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Puerto Caicedo&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Puerto Wilches&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Repelón&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Sabanagrande&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;San Andrés&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;San Francisco&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;San Luis&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;San Sebastián&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Santa Rosa de Osos&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Sesquilé&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Susacón&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Tausa&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Titiribí&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Túquerres&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Valdivia&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Villa de de Ubaté&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Yalí&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Alcalá&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Anorí&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Argelia&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Barrancabermeja&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Bello&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Bojacá&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Caicedo&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Cañasgordas&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Cereté&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Chíquiza&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Coello&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Corrales&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Curumaní&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;El Carmen de Viboral&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;El Playón&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Filandia&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Fúquene&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Girardota&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Guapotá&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Herveo&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Jenesano&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;La Gloria&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;La Vega&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Los Patios&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Malambo&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Mesetas&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Moñitos&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Nobsa&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Ortega&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Palmito&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Peque&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Ponedera&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Puerto Concordia&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Puracé&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Ricaurte&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Sabaneta&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;San Jacinto del Cauca&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;San Luis de Palenque&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;San Vicente de Chucurí&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Santa Rosalía&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Sibaté&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Sopetrán&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Sutatenza&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Tenerife&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Tocancipá&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Turbo&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Valle de San Juan&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Villa rica&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Yolombó&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Alejandría&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Ansermanuevo&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Arjona&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Barranco de Loba&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Bolívar&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Bucaramanga&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Caimito&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Capitanejo&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Cerrito&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Chiscas&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Colombia&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Cotorra&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Dagua&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;El Cerrito&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;El Retorno&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Flandes&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Gachalá&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Guarne&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Gómez Plata&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Hobo&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Jesús María&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;La Jagua del Pilar&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;La Virginia&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Lourdes&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Manzanares&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Miraflores&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Morelia&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Norcasia&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Otanche&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Pamplona&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Pesca&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Pore&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Puerto Gaitán&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Purísima de la Concepción&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Río Iró&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;San Antonio&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;San Joaquín&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;San Marcos&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;San Vicente Ferrer&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Santacruz&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Silos&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Sopó&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Sácama&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Tadó&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Tenza&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Toledo&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Tuta&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Villahermosa&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Yopal&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Aguada&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Arauquita&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Balboa&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Berbeo&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Buriticá&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Cali&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Caloto&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Cartagena del Chairá&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Chimichagua&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Ciénega&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Convención&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Cumaral&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;El Banco&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;El Litoral San Juan&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Enciso&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Fredonia&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Garagoa&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Guadalajara de Buga&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Guadalupe&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Hacarí&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Istmina&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;La Chorrera&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;La Playa&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Linares&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Matanza&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Moniquirá&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Málaga&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Nechí&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Oicatá&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Pajarito&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Paya&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Pitalito&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Puerres&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Puerto Salgar&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Recetor&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Roldanillo&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Samaniego&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;San Diego&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;San Juan de Urabá&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;San Pedro los Milagros&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Santa María&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Sasaima&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Sincelejo&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Socorro&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Supatá&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Tarqui&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Timbiquí&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Tuchín&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Urrao&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Victoria&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Viterbo&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Zona Bananera&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Agrado&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Amagá&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Aranzazu&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Bagadó&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Buenos Aires&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Carmen del Darién&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Chigorodó&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Cicuco&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Consacá&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Dosquebradas&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Ebéjico&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;El Espino&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;El Zulia&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Fortul&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Gamarra&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Guachetá&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Guayabetal&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;La Capilla&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;La Pedrera&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Mahates&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Marquetalia&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Mompós&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Nariño&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Ocamonte&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Pailitas&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Pinillos&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Pueblorrico&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Puerto Parra&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Ragonvalia&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Rionegro&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Risaralda&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Salgar&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;San Carlos de Guaroa&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;San Juan de Arama&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;San Pedro&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Santa Helena del Opón&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Sapuyes&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Subachoque&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Taraira&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Tierralta&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Trinidad&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Uramita&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Versalles&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Viotá&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Zetaquira&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Abriaquí&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Alpujarra&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Apartadó&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Arroyohondo&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Barranquilla&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Becerril&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Briceño&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Caramanta&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Chachagüí&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Chitaraque&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Coyaima&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Cómbita&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Dolores&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;El Colegio&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;El Rosario&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Florián&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Gachetá&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Granada&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Guataquí&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Icononzo&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Juradó&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;La Merced&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Lebrija&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Maceo&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Margarita&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Mitú&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Motavita&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Nueva Granada&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Pacho&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Palmira&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Pandi&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Piedras&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Prado&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Puerto Libertador&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Rioblanco&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Saladoblanco&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;San Benito abad&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;San José de Pare&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;San Miguel&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Santa Ana&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Santiago&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Simacota&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Sotara&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Tesalia&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Támara&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Tópaga&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Ulloa&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Villapinzón&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Vélez&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Zambrano&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Albán&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Angostura&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Arcabuco&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Armenia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Barichara&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Bochalema&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Candelaria&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Caucasia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Chipatá&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Clemencia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Coromoro&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Curillo&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Cáchira&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;El Carmen de Bolívar&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;El Peñón&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Falan&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Funes&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Giraldo&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Guamo&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Heliconia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Jamundí&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;La Dorada&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;La Estrella&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;La Unión&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Los Córdobas&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Manaure Balcón del Cesar&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Melgar&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Nilo&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Orito&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Palmas del Socorro&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Pensilvania&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Policarpa&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Puerto Carreño&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Pulí&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Restrepo&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Sabanalarga&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;San Andrés de Cuerquía&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;San Gil&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;San Luis de Cubarral&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;San Sebastián de Buenavista&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Santa Rosa de Viterbo&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Sevilla&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Solita&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Sutamarchán&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Tello&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Toca&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Turbaco&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Valencia&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Villa de Leyva&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Yarumal&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Aguadas&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Ancuyá&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Arbeláez&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Baranoa&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Betania&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Cabrera&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Campamento&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Chinácota&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Cimitarra&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Copacabana&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Cumaribo&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;El Cairo&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;El Molino&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Entrerríos&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Fresno&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Garzón&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Guaduas&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Hatillo de Loba&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Ibagué&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;La Cruz&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;La Primavera&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Lloró&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Montebello&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Necoclí&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Olaya&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Palermo&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Paz de Ariporo&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Pivijay&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Puerto Asís&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Puerto Santander&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Regidor&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Rosas&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Sampués&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;San Estanislao&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;San Juan del Cesar&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;San Pelayo&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Sativanorte&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Soacha&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Socotá&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Supía&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Tarso&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Tinjacá&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Tuluá&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Urumita&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Vigía del Fuerte&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Yacopí&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Acacías&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Altamira&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Apía&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Astrea&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Belalcázar&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Calamar&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Carcasí&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Chalán&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Chivatá&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Concepción&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Cuaspúd&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Donmatías&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;El Copey&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;El Santuario&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Florida&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Galán&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Guaca&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Guatavita&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Iles&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;La Apartada&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;La Mesa&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Leiva&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Machetá&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;María la Baja&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Mocoa&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Murindó&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Nuevo Colón&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Panqueba&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Pasto&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Piendamó&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Providencia&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Puerto Lleras&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Pácora&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Quimbaya&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Riofrío&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Salamina&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;San Bernardo&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;San José de Uré&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;San Miguel de Sema&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Santa Bárbara&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Santiago de Tolú&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Simijaca&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Suaita&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Tame&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Tibacuy&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Toribío&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Venadillo&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Villarrica&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Villavicencio&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Zapatoca&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Úmbita&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Colombia&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Extract' id='Extract (Extract.Extract)_A2446189F50B416986749427371AA4B0'>
+            <properties context=''>
+              <relation connection='hyper.001pufu0ismmnb1brhcij0fe8squ' name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Highlight 1 (generated)' name='[Action1]'>
+      <activation auto-clear='true' type='on-select' />
+      <source type='sheet' worksheet='Casos Covid-19 en Colombia' />
+      <command command='tsc:brush'>
+        <param name='field-captions' value='Ciudad' />
+        <param name='target' value='Casos Covid-19 en Colombia' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Casos Covid-19 en Colombia'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontname='Tableau Book' fontsize='14'><![CDATA[Top 15 Ciudades <Sheet Name> al ]]></run>
+            <run bold='true' fontcolor='#ff0000' fontname='Tableau Book' fontsize='18'>&lt;Page Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='df_colombia_covid19 Extract' name='federated.1heur710i36uig1farh4f0gx6dkd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1heur710i36uig1farh4f0gx6dkd'>
+            <column caption='Casos Totales' datatype='integer' name='[CASOS_TOTALES]' role='measure' type='quantitative' />
+            <column caption='Ciudad' datatype='string' name='[CIUDAD]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Rank' datatype='integer' name='[Calculation_680325054285357056]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='RANK_UNIQUE(SUM([CASOS_TOTALES]),&apos;desc&apos; )'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Fecha Contagio' datatype='datetime' name='[FECHA_CONTAGIO]' role='dimension' type='ordinal' />
+            <column-instance column='[CIUDAD]' derivation='None' name='[none:CIUDAD:nk]' pivot='key' type='nominal' />
+            <column-instance column='[CASOS_TOTALES]' derivation='Sum' name='[sum:CASOS_TOTALES:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FECHA_CONTAGIO]' derivation='Day-Trunc' name='[tdy:FECHA_CONTAGIO:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_680325054285357056]' derivation='User' name='[usr:Calculation_680325054285357056:ok:2]' pivot='key' type='ordinal'>
+              <table-calc ordering-field='[federated.1heur710i36uig1farh4f0gx6dkd].[CIUDAD]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Calculation_680325054285357056]' derivation='User' name='[usr:Calculation_680325054285357056:qk:3]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1heur710i36uig1farh4f0gx6dkd].[CIUDAD]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1heur710i36uig1farh4f0gx6dkd].[usr:Calculation_680325054285357056:qk:3]' included-values='in-range'>
+            <min>1</min>
+            <max>15</max>
+          </filter>
+          <slices>
+            <column>[federated.1heur710i36uig1farh4f0gx6dkd].[usr:Calculation_680325054285357056:qk:3]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1heur710i36uig1farh4f0gx6dkd].[sum:CASOS_TOTALES:qk]' field-type='quantitative' scale='symlog' scope='cols' type='space' />
+            <format attr='display' class='0' field='[federated.1heur710i36uig1farh4f0gx6dkd].[sum:CASOS_TOTALES:qk]' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1heur710i36uig1farh4f0gx6dkd].[tdy:FECHA_CONTAGIO:ok]' value='*d/mm/yyyy' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.1heur710i36uig1farh4f0gx6dkd].[usr:Calculation_680325054285357056:ok:2]' value='false' />
+            <format attr='text-format' field='[federated.1heur710i36uig1farh4f0gx6dkd].[tdy:FECHA_CONTAGIO:ok]' value='*d/mm/yyyy' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='stroke-size' id='refline0' value='1' />
+            <format attr='line-visibility' id='refline0' value='on' />
+            <format attr='line-pattern-only' id='refline0' value='dotted' />
+            <format attr='stroke-color' id='refline0' value='#e15759' />
+            <format attr='color' id='refline0' value='#ff0000' />
+            <format attr='font-weight' id='refline0' value='bold' />
+            <format attr='font-size' id='refline0' value='14' />
+          </style-rule>
+          <_.fcp.MarkAnimation.true...style-rule element='animation'>
+            <format attr='animation-duration' value='0.5' />
+          </_.fcp.MarkAnimation.true...style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1heur710i36uig1farh4f0gx6dkd].[none:CIUDAD:nk]' />
+              <text column='[federated.1heur710i36uig1farh4f0gx6dkd].[none:CIUDAD:nk]' />
+              <text column='[federated.1heur710i36uig1farh4f0gx6dkd].[sum:CASOS_TOTALES:qk]' />
+            </encodings>
+            <reference-line axis-column='[federated.1heur710i36uig1farh4f0gx6dkd].[sum:CASOS_TOTALES:qk]' enable-instant-analytics='true' formula='total' id='refline0' label='&lt;Value&gt;' label-type='custom' scope='per-pane' tooltip-type='none' value-column='[federated.1heur710i36uig1farh4f0gx6dkd].[sum:CASOS_TOTALES:qk]' z-order='1' />
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontalignment='0' fontsize='11'><![CDATA[<[federated.1heur710i36uig1farh4f0gx6dkd].[none:CIUDAD:nk]>]]></run>
+                <run fontalignment='0'>Æ&#10;</run>
+                <run bold='true' fontalignment='0' fontsize='8'><![CDATA[<[federated.1heur710i36uig1farh4f0gx6dkd].[sum:CASOS_TOTALES:qk]>  Casos totales.]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1heur710i36uig1farh4f0gx6dkd].[usr:Calculation_680325054285357056:ok:2]</rows>
+        <cols>[federated.1heur710i36uig1farh4f0gx6dkd].[sum:CASOS_TOTALES:qk]</cols>
+        <pages>
+          <column>[federated.1heur710i36uig1farh4f0gx6dkd].[tdy:FECHA_CONTAGIO:ok]</column>
+        </pages>
+      </table>
+      <simple-id uuid='{6EBBD7D8-0090-4F49-9C23-3E5FB17239FE}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Casos Covid-19 en Colombia'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card type='currpage' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <current-page>
+          <multibucket>
+            <bucket>#2020-09-25 00:00:00#</bucket>
+          </multibucket>
+        </current-page>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1heur710i36uig1farh4f0gx6dkd].[yr:FECHA_CONTAGIO:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{71A8483B-6E69-4225-9C61-4568FBAEE2E6}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Casos Covid-19 en Colombia' width='192'>
+      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
+      ARG4w5fwV3y0AAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
