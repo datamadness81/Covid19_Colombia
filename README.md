@@ -66,7 +66,7 @@ the result data in a bar chart race I choose Tableau.
 </p>
 <p align="center">
   <a href="https://github.com/jjnc2006/Covid19_Colombia/blob/master/">
-    <img src="images/screenshot.png">
+    <img src="images/screenshot.png" width="240" height="360">
   </a>
 
 ### Built With
