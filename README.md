@@ -64,7 +64,10 @@ I used two python libraries: Pandas and Numpy. Then, to export the Pandas data f
 oriented to export the panda's data frame to a Tableau file, those libraries are Plandeau and Tableausdk. Finally, to visualize 
 the result data in a bar chart race I choose Tableau.
 </p>
-[![Colombia Covid-19 Bar Chart Race by City][product-screenshot]](https://example.com)
+<p align="center">
+  <a href="https://github.com/jjnc2006/Covid19_Colombia">
+    <img src="images/screenshoot.png" alt="Logo" width="80" height="80">
+  </a>
 
 ### Built With
 
@@ -130,7 +133,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the GNU GENERAL PUBLIC LICENSE License. See `LICENSE` for more information.
+Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE` for more information.
 
 
 
