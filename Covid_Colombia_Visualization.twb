@@ -3,11 +3,13 @@
 <!-- build 20203.20.0918.1727                               -->
 <workbook original-version='18.1' source-build='2020.3.1 (20203.20.0918.1727)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
+    <HideSortControls />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <SheetIdentifierTracking />
+    <SortTagCleanup />
     <SymmetricLogAxis />
     <WindowsPersistSimpleIdentifiers />
     <WorksheetBackgroundTransparency />
@@ -22,8 +24,8 @@
     </style-rule>
     <_.fcp.MarkAnimation.true...style-rule element='animation'>
       <format attr='animation-on' value='ao-on' />
-      <format attr='animation-duration' value='1' />
       <format attr='animation-style' value='as-phased' />
+      <format attr='animation-duration' value='0.5' />
     </_.fcp.MarkAnimation.true...style-rule>
   </style>
   <datasources>
@@ -46,7 +48,7 @@
             <ordinal>0</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
-            <approx-count>316</approx-count>
+            <approx-count>319</approx-count>
             <contains-null>true</contains-null>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_E46B7F5FCC134FA48AAD9F7B403CB6F5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
@@ -59,7 +61,7 @@
             <ordinal>1</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>5535</approx-count>
+            <approx-count>5520</approx-count>
             <contains-null>true</contains-null>
             <collation flag='0' name='binary' />
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_E46B7F5FCC134FA48AAD9F7B403CB6F5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -73,7 +75,7 @@
             <ordinal>2</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
-            <approx-count>588</approx-count>
+            <approx-count>259</approx-count>
             <contains-null>true</contains-null>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_E46B7F5FCC134FA48AAD9F7B403CB6F5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
@@ -86,7 +88,20 @@
             <ordinal>3</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
-            <approx-count>2129</approx-count>
+            <approx-count>1995</approx-count>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_E46B7F5FCC134FA48AAD9F7B403CB6F5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TOTALIZACION_COLOMBIA</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TOTALIZACION_COLOMBIA]</local-name>
+            <parent-name>[Extract]</parent-name>
+            <remote-alias>TOTALIZACION_COLOMBIA</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <approx-count>21560</approx-count>
             <contains-null>true</contains-null>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Extract (Extract.Extract)_E46B7F5FCC134FA48AAD9F7B403CB6F5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
@@ -101,10 +116,10 @@
           <table-calc ordering-type='Rows' />
         </calculation>
       </column>
-      <column caption='Fecha Contagio' datatype='datetime' name='[FECHA_CONTAGIO]' role='dimension' type='ordinal' />
+      <column caption='Fecha Contagio' datatype='date' datatype-customized='true' name='[FECHA_CONTAGIO]' role='dimension' type='ordinal' />
       <_.fcp.ObjectModelTableType.true...column caption='Extract' datatype='table' name='[__tableau_internal_object_id__].[Extract (Extract.Extract)_E46B7F5FCC134FA48AAD9F7B403CB6F5]' role='measure' type='quantitative' />
       <column-instance column='[CIUDAD]' derivation='None' name='[none:CIUDAD:nk]' pivot='key' type='nominal' />
-      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' rowDisplayCount='1000' show-hidden-fields='true' show-structure='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:CIUDAD:nk]' palette='tableau-20' type='palette'>
@@ -1147,6 +1162,9 @@
               <bucket>&quot;Guadalajara de Buga&quot;</bucket>
             </map>
             <map to='#9edae5'>
+              <bucket>&quot;Jesús María&quot;</bucket>
+            </map>
+            <map to='#9edae5'>
               <bucket>&quot;Villavicencio&quot;</bucket>
             </map>
             <map to='#a0cbe8'>
@@ -1292,6 +1310,9 @@
             </map>
             <map to='#aec7e8'>
               <bucket>&quot;Itagüí&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;Pana Pana&quot;</bucket>
             </map>
             <map to='#aec7e8'>
               <bucket>&quot;Ábrego&quot;</bucket>
@@ -1748,6 +1769,9 @@
             </map>
             <map to='#c7c7c7'>
               <bucket>&quot;Cartagena de Indias&quot;</bucket>
+            </map>
+            <map to='#c7c7c7'>
+              <bucket>&quot;Palmas del Socorro&quot;</bucket>
             </map>
             <map to='#c7c7c7'>
               <bucket>&quot;Sincelejo&quot;</bucket>
@@ -2339,6 +2363,9 @@
             </map>
             <map to='#e377c2'>
               <bucket>&quot;Rionegro&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;Suratá&quot;</bucket>
             </map>
             <map to='#f1ce63'>
               <bucket>&quot;Amagá&quot;</bucket>
@@ -3076,6 +3103,9 @@
         <semantic-value key='[Country].[Name]' value='&quot;Colombia&quot;' />
       </semantic-values>
       <date-options start-of-week='monday' />
+      <default-sorts>
+        <alphabetic-sort column='[none:CIUDAD:nk]' direction='ASC' />
+      </default-sorts>
       <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
         <objects>
           <object caption='Extract' id='Extract (Extract.Extract)_E46B7F5FCC134FA48AAD9F7B403CB6F5'>
@@ -3103,6 +3133,7 @@
           <datasources>
             <datasource caption='df_colombia_covid19 Extract' name='federated.0lg33xg0kkp3od18g12ty0yyni27' />
           </datasources>
+          <datasource-dependencies datasource='Parameters' />
           <datasource-dependencies datasource='federated.0lg33xg0kkp3od18g12ty0yyni27'>
             <column caption='Casos Diarios' datatype='integer' name='[CASOS_DIARIOS]' role='measure' type='quantitative' />
             <column caption='Casos Totales' datatype='integer' name='[CASOS_TOTALES]' role='measure' type='quantitative' />
@@ -3112,10 +3143,12 @@
                 <table-calc ordering-type='Rows' />
               </calculation>
             </column>
-            <column caption='Fecha Contagio' datatype='datetime' name='[FECHA_CONTAGIO]' role='dimension' type='ordinal' />
+            <column caption='Fecha Contagio' datatype='date' datatype-customized='true' name='[FECHA_CONTAGIO]' role='dimension' type='ordinal' />
             <column-instance column='[CIUDAD]' derivation='None' name='[none:CIUDAD:nk]' pivot='key' type='nominal' />
             <column-instance column='[CASOS_DIARIOS]' derivation='Sum' name='[sum:CASOS_DIARIOS:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[CASOS_DIARIOS]' derivation='Sum' name='[sum:CASOS_DIARIOS:vtsum:qk]' pivot='key' type='quantitative' visual-totals='Sum' />
             <column-instance column='[CASOS_TOTALES]' derivation='Sum' name='[sum:CASOS_TOTALES:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[CASOS_TOTALES]' derivation='Sum' name='[sum:CASOS_TOTALES:vtsum:qk]' pivot='key' type='quantitative' visual-totals='Sum' />
             <column-instance column='[FECHA_CONTAGIO]' derivation='Day-Trunc' name='[tdy:FECHA_CONTAGIO:ok]' pivot='key' type='ordinal' />
             <column-instance column='[Calculation_77687127746301952]' derivation='User' name='[usr:Calculation_77687127746301952:ok:2]' pivot='key' type='ordinal'>
               <table-calc ordering-field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[CIUDAD]' ordering-type='Field' />
@@ -3128,6 +3161,7 @@
             <min>1</min>
             <max>10</max>
           </filter>
+          <hide-sort-controls />
           <slices>
             <column>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:qk:3]</column>
           </slices>
@@ -3135,22 +3169,50 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]' field-type='quantitative' scale='symlog' scope='cols' type='space' />
-            <format attr='display' class='0' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]' scope='cols' value='false' />
+            <encoding attr='space' class='0' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:vtsum:qk]' field-type='quantitative' max='1000000' min='0' range-type='fixed' scale='symlog' scope='cols' type='space' />
+            <format attr='display' class='0' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:vtsum:qk]' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='color' data-class='total' value='#000000' />
           </style-rule>
           <style-rule element='label'>
             <format attr='display' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]' value='false' />
           </style-rule>
           <style-rule element='table'>
-            <format attr='show-null-value-warning' value='false' />
             <format attr='background-color' value='#00000000' />
+            <format attr='omit-on-special' value='true' />
+            <format attr='break-on-special' value='true' />
+            <format attr='omit-on-special' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:vtsum:qk]' value='true' />
+            <format attr='break-on-special' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:vtsum:qk]' value='true' />
+            <format attr='show-null-value-warning' value='false' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[Parameters].[TOTALIZACION_COLOMBIA Parameter]' value='false' />
+            <format attr='in-tooltip' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]' value='false' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='line-pattern-only' id='refline0' value='dotted' />
+            <format attr='font-weight' id='refline0' value='bold' />
+            <format attr='color' id='refline0' value='#e15759' />
+            <format attr='font-size' id='refline0' value='22' />
+            <format attr='stroke-size' id='refline0' value='0' />
+            <format attr='line-visibility' id='refline0' value='off' />
+            <format attr='background-color' id='refline0' value='#ffffff' />
+            <format attr='text-align' id='refline0' value='left' />
+            <format attr='vertical-align' id='refline0' value='bottom' />
           </style-rule>
           <style-rule element='legend-title'>
             <format attr='font-family' value='Tableau Book' />
           </style-rule>
+          <style-rule element='data-highlighter-title'>
+            <format attr='title' field='[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]' value='Highlight DAY(Fecha Contagio)' />
+            <format attr='font-family' value='Tableau Book' />
+          </style-rule>
           <_.fcp.MarkAnimation.true...style-rule element='animation'>
             <format attr='animation-style' value='as-synced' />
-            <format attr='animation-duration' value='1' />
+            <format attr='animation-duration' value='0.5' />
           </_.fcp.MarkAnimation.true...style-rule>
         </style>
         <panes>
@@ -3163,38 +3225,382 @@
             <encodings>
               <color column='[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]' />
               <text column='[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]' />
-              <text column='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]' />
-              <text column='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]' />
+              <text column='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:vtsum:qk]' />
+              <text column='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:vtsum:qk]' />
             </encodings>
+            <reference-line axis-column='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:vtsum:qk]' enable-instant-analytics='true' formula='total' id='refline0' label='&lt;Value&gt; Total Colombia' label-type='custom' scope='per-pane' value-column='[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:vtsum:qk]' z-order='1' />
             <customized-label>
               <formatted-text>
                 <run bold='true' fontsize='14'><![CDATA[<[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]>]]></run>
                 <run>Æ&#10;</run>
-                <run bold='true' fontsize='8'><![CDATA[Dia: <[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]> casos.]]></run>
+                <run bold='true' fontsize='8'><![CDATA[Dia: <[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:vtsum:qk]> casos.]]></run>
                 <run>Æ&#10;</run>
-                <run bold='true' fontsize='8'><![CDATA[Total: <[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]> casos.]]></run>
-                <run>Æ&#10;</run>
+                <run bold='true' fontsize='8'><![CDATA[Total: <[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:vtsum:qk]> casos.]]></run>
+                <run>Æ&#10;   &#10;</run>
               </formatted-text>
             </customized-label>
             <style>
               <style-rule element='cell'>
+                <format attr='vertical-align' value='bottom' />
                 <format attr='text-align' value='left' />
-                <format attr='vertical-align' value='center' />
+                <format attr='wrap' value='auto' />
               </style-rule>
               <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
                 <format attr='mark-labels-mode' value='all' />
+                <format attr='size' value='1.6921546459197998' />
                 <format attr='mark-labels-cull' value='false' />
-                <format attr='size' value='1.6811602115631104' />
+                <format attr='mark-labels-show' value='true' />
               </style-rule>
             </style>
           </pane>
         </panes>
         <rows>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</rows>
-        <cols>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</cols>
+        <cols>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:vtsum:qk]</cols>
         <pages>
           <column>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</column>
         </pages>
+        <annotations>
+          <annotation class='point' id='20' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Rionegro&quot;</value>
+                    <value>2</value>
+                    <value>3</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='21' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Pereira&quot;</value>
+                    <value>3</value>
+                    <value>5</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='22' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Palmira&quot;</value>
+                    <value>0</value>
+                    <value>3</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='23' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Neiva&quot;</value>
+                    <value>2</value>
+                    <value>10</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='24' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Medellín&quot;</value>
+                    <value>2</value>
+                    <value>10</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='25' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Cúcuta&quot;</value>
+                    <value>0</value>
+                    <value>4</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='26' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Cartagena de Indias&quot;</value>
+                    <value>3</value>
+                    <value>8</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='27' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Cali&quot;</value>
+                    <value>3</value>
+                    <value>6</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='28' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Bogotá D.C.&quot;</value>
+                    <value>9</value>
+                    <value>40</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+          <annotation class='point' id='29' mark-position='1' pullback='12' text-width='180'>
+            <formatted-text />
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_DIARIOS:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:CASOS_TOTALES:qk]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[tdy:FECHA_CONTAGIO:ok]</field>
+                      <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127746301952:ok:2]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>&quot;Barranquilla&quot;</value>
+                    <value>2</value>
+                    <value>3</value>
+                    <value>#2020-03-16 00:00:00#</value>
+                    <value>%all%</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='130' y='-20' />
+          </annotation>
+        </annotations>
         <page-trail-options enabled='true' mark-type='all' />
       </table>
       <simple-id uuid='{07DA1677-2874-4FC0-8009-5ADFFD4EA135}' />
@@ -3223,7 +3629,6 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]' type='color' />
             <card type='currpage' />
           </strip>
         </edge>
@@ -3231,14 +3636,15 @@
       <viewpoint>
         <current-page>
           <multibucket>
-            <bucket>#2020-05-04 00:00:00#</bucket>
+            <bucket>#2020-10-09 00:00:00#</bucket>
           </multibucket>
         </current-page>
         <zoom type='entire-view' />
         <highlight>
           <color-one-way>
-            <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:CIUDAD:nk]</field>
+            <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[Colombia]</field>
             <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[none:FECHA_CONTAGIO:qk]</field>
+            <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[sum:TOTALIZACION_COLOMBIA:ok]</field>
             <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[usr:Calculation_77687127807324164:ok]</field>
             <field>[federated.0lg33xg0kkp3od18g12ty0yyni27].[yr:FECHA_CONTAGIO:ok]</field>
           </color-one-way>
@@ -3250,160 +3656,24 @@
   <thumbnails>
     <thumbnail height='192' name='Covid-19 Colombia' width='192'>
       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
-      AAAgAElEQVR4nO3deZBcx2Hf8e875s09O7PXzN6LBRYXSYAgQYCUAJKiRNEyJVkWEyZiRXHZ
-      lciVcsr/5Kgkf8Sp/JXEVckftuOraMe2LMESJVqUSJGGQUEiQBBc4l6cu1jsfczuzs59vaPz
-      xwADgiCoxXKAWWD7U4XamX0z8/qh3m9fd7/uaUUIIZCkNUqtdwEkqZ6qAbBtu57lkKS60K89
-      ePXEFDOpUj3LIkl3XTUA3xuY4P2xZD3LIkl3nWwDSGuaDIC0pskASGuaDIC0pskASGuaDIC0
-      pskASGuaDIC0pskASGuaDIC0pskASGuaDIC0pskASGuaDIC0plWHQz/3QIzN7Q31LIsk3XXK
-      tTnBtm2jaVq9yyNJd5WsAklrWrUKlHn7bcTCQj3LIkl3ReDpp3G1tQEfCkDir/6K0gfH6lYo
-      Sbpbujq7qgGQVSBpTZMBkFYV9+bNhL76VVCvn5qBp59Ga4zg3ry55vuTAZBWDa2xkeAXvkDh
-      xAlcnZ00/87v4HviCYz1fSBAMYya71MGQFo19OZmSkNDmBMTqB4PhdOn8e/cCYDq9eJqb6v9
-      Pmv+iZK0QqXhYYLPPot7wwZKQ0O4N27EKRRw0hmEbePkCzXfpwyAtHo4Dgt/9EfVp5l/+Icb
-      NltzczXfpawCSWuavAJIq4Zn2zaMzk6spQTm1DQgcNIZtEgEo6cHPRYl/dM3MXp6cHJZRNlE
-      b27GTqUQ5RJ6SyuFEydua58yANKqoRgG1lICo6MTrSGM6naTfvNNPA89hN7cjKJquNf3oTc2
-      ofh6Ud0Gqt9PeXwcxXDjikYpXbqIk8sve58yANKqUTxzBq2hgcKx4ygeDzgOKAq5d95BcRuo
-      Pj92Oo0WDoNtI0wT1efDKRYRloUWCCCc21vvRQZAWj00DRQFUS4jTBNF1ys/XS5EqYxdKqP6
-      /diLi2gNDTiFAorbjbBtFEXBmp+/7V3KAEirhqJp+D/7GcpXRlGDQbRwGFHIg6qSP34Ce2kJ
-      /549ZPbvx79nD3osir2URBQKCKA4OIjq9+PZtJHyxCSiWERva8PJZDBnZzHHx2/apwyAtGo4
-      mQzm1DRaQwPCNBH5PMa6XqylJAiBoutokQhaJIKiaVjxOIrLQNgWwrTQGhpQ3G6Mvj6sRAJX
-      Xx/CtgBw+3zYySWcdOaGfcoASKtK/ujRT9ye3LcPgNRrr93yNYVjyx/VXA2A//HHcUdjy36j
-      JN2r9JaW6mM5JVJa0+SdYGlNq1aB0uk0juPUsyyStGyhUAiXy/WpP6cagMnJSXK53Kf+QEm6
-      G7Zs2UJDw6f/Gh9ZBZLWNBmANc5xHE6fPs358+c/dvv4x9w8Wonjx49j2/ZNn21Z1k2vHRgY
-      4NKlSywtLdVk359E3gdY444cOUIqlWLTpk188MEHnD59ml/7tV/j1KlTFAoF3nrrLV544QUs
-      y2J6epoXXniB119/HSEEzz33HK+++iqPP/448XicsbEx9u7dy6VLl4jH47z44otomsYPf/hD
-      jh8/Tm9vLz/+8Y957LHH2Lp1K4cOHeL555/njTfewLZtvv71r/PKK68wNjbGiy++CMB3vvMd
-      Ghoa2L59O2+99RbPPvss3d3dNTt+eQVY4yYmJti7dy99fX0IIWhtbeXkyZOcOHGCZ599ll27
-      dvHkk09iGAaWZXHgwAHa29urj2OxGIcOHWJkZITnn3+eEydO4PF4KBQKzM7OMjw8TDQaZfv2
-      7Rw8eJDW1lYOHTpU3b9lWdi2jcfjYf/+/ezdu5fe3l4mJydJp9O0trYyODjI/Pw8uVyOfH75
-      Iz2XQwZgjfvMZz7Dyy+/zOuvv87JkycZHx9H0zR6e3sxDAPHcTh48CADAwPMz88Ti8U4fPgw
-      ly5dYuPGjQwNDdHV1YXP58PtdqNpGkePHmVxcRFVVWlpaeHIkSMMDQ3R39/P8PAwXV1dABiG
-      gaIoBINBPB4Pvb29vPrqq8zNzaHrOtlsloGBAUqlEqqqYhgGCzX+8rbqjbAzZ87IXiDpl8pk
-      Muzbtw/HcfjWt76Foih1KUeteoFkAKR7Uq0CIBvBa9w777yDEIKuri7K5TKRSIRwOMzhw4dp
-      bW1lYmKCZ555htHRUVwuF4FAgIWFBfx+Pz6fj3g8ztatW+t9GCsmAyABMDc3x9TUFP39/YTD
-      YRYWFpicnKS7u5tkMkkqlSKZTFIoVL6apKmpiVwuR7FYZOPGjej6vXkq3Zullmpm48aNqKqK
-      z+ejs7MTj8eDpmns2bOHcDhMIpGgpaWFUqlER0cHHo+HTCaD1+vF4/GwtLREPp8nFArV+1BW
-      RAZgjYtEIkClR8bj8aCqKoqiEI1GUVWVWCyGaZq0traiaRqO4xCJRKqN33v1xL9GBmCNO3bs
-      GLquY9s2U1NTbN++nfn5eQzDoK+vj1OnTqEoCpFIhPHxceLxOC+99BJnz54lFApRLpfJZDJE
-      IhEcxyGZTLJ7925U9d7oYb83SindMbFYjEgkUj3p5+bmGBgYqG7v7+8nm81SKpV47LHHiEQi
-      LCwskEgkuHDhApcuXWJwcJDZ2VlmZ2cZHBxkcXGxjkd0e2Q3qHRPqnk3aCAQuGdb8tLaU6tz
-      VU6JlNY02QaQ1rTqdWSxZGJx89hsSVptmtwu3Fpt/nZXAzAwnyZelgGQVr9f6WiizeeuyWfJ
-      KpC0pskASCuWXlyklM9jlkosTE5w8f33GDo2QDI+x/zE2Me+59yRQzgfmRp5689fYPz82VoW
-      +Say31NasXw6xcX338XweAk1t2B4PFw4+i6Gx0MumWTk1AlyqRSbdz9BINLI3OgVDI8H27b5
-      2Xf/hnUPbWdpdgbHsel9cDuDhw4SaY3Rt+NR3vn+d9nx+S+iuVwMHXufsbNnePob30R31Xal
-      SBkAacVau3s49fZ+UGDTrsc5/Or3q9sEAsPrZezsGcrbHub06bcpZrPYlklqPs66h7bT2NbO
-      Oz/Yh667UDWdaG8fI6eOMzV8iWde+g2S83NMXbzA1KULPPLFL3Hy7f3sfO75mh6DrAJJK6Zq
-      Gi63G83lQvnI2B/Hsji+/01SC/MEm5qZOD9I15bKvIFobx/v/eRVpocvoWoawcYmNF3HFwyi
-      aTrRnl7efPmPSc3HK58lHA7/8Hu09fXX/BiqN8JeH4vLXiDptgkhQAhQlMpPqDy+tg1QFAUh
-      RGUE6dXXfvi5EOJ6gK5td5wbQnXt9Yqi1LQXSFaBpE9FUZTqCc9H5gd/eL6w8pHXfPi5cuOb
-      Kj8+MirhTs09lgGQVmz83CDxiXFau7rxhRpwud243G7Gz51FM1x0b3mA1HycYi5HqKkZIQT5
-      dIpAOIIQgnBrtN6HIAMgrVwhm6Glq5uRUycIR2OUCwV2funLlIp5lJLK0LEBOvo38d5rr9K5
-      aQuWWUbVNKxSiZbunlURANkGkFYsk1hkYWqS1q4esqkkuq7j9gcoF/NougvD4yUZn6WYzeIN
-      hXB7vKQW5/E3hFEVFU8ggL8hfNv7lW0AaVUINjYRbGwCwB/+8Il8/bE3sOGG90RibXejaMsm
-      AyCt2PzkOCff3k//IzvJp9PkUknCrVEK2SzdWx/EsUzeeeXvaO3uIdDYhHAcgo1Nla5TTSOX
-      SqEoCr6GBnLJJIqiEFu/AX/o0090WS4ZAGnFItE22tatZ2FqEoRA1XROvr2fpvYO1j20HZdh
-      EInGaO1Zx8zlIVweDwC2ZQGC0TOnaWxrQ1Er9xPKhQKKqtD74HbUuzQ3RbYBpBUTQiAcB8ex
-      UVUN27ZAgKqpgIKqqpjlMpquIQRouo4QDsJxEI64ep9AoOmuq+8VqJqGqumf2O15R9oAIUPD
-      rtP3PEr3MW9tTtQPc6m1O0/llEhpTZNjgaQ17XojODECVqGORZGkZYo9dNOwi5W6XgV6+Uto
-      E+/W5EMl6Y76vWTNAiCrQNKaJgMg1ZzlCBbzNy667gjBQt7BtAVHp65Piby0aBPP1W+BdhkA
-      qeYSBcG+QQsh4NiMzffPmpyadfg3PylyadFBCMHIksPLx8uYdmUKwHcHTX46dPfvQ8kASHeM
-      IwR/fqzMcMIhUxY80qbRGVI5OmXz/06WeW6DzlDCYT4vKNuCfWdNbEfc1TLKoRDSHXFo3GJd
-      RMGtKRRtQSygMJp0GE9VqjteXeFHFy2ifoXFvODwuI1pC+7u6S97gaQ7oFLfF7g1BbcO2bKg
-      0auQLYOhgSMqP5NFQcBQ0FVIl8ClQsBYxuyvGvYCySuAVHOqotDqv36CevSrq8l8ZFREs+/6
-      axq9d6VoN5EBkGrubNxmKOGwqUmlyafgUhVcGhyfsa9WhQSPd2qUbYHtVP6YlywIuRVMR1Cw
-      IOZXcGl3fmyaDIBUcwsFwfqIytujNh1BhbwJX9+i49EVjs84zGYdmrwK0xkHQ1O4vOSgq+B1
-      VUIQzwq+vFGnLSgDIN2DNjaqjCw5vLBFZ6kg0FXIlStVoN0dGosFlf4mFb8BZRvagxp5U9Di
-      VylZgpgfSsv79sRPTQZAqrm2oEpbsNLDHgtc/32TrzLaeF1lYUpC7vqPPpYBkGpuNOnwxpDF
-      nm6NTEkwmxO0BxQKFmxprgRj31mTX9/s4r1Jm2afgqJAV0hBiEqPkKpAxKuQKAgUYH2jSthT
-      +yqRDIBUc50hhb6IypWkQ9kCnwH7R2wavQqPtmnYAgKGwrEZm2Sx0kX6VLfG/hELQ1N4f8qm
-      J6xQNKHBo1C2BYoCD8dU1BpP2pIBkGpOU+CpHo2SDR4dcmXBY+0aXl1BVcCvw1c26kT9KiVb
-      4Ahw6wpP9epYNuyIqQggaCjkTYEtKjfO7oTrAQhEIdx9R3YirS0K4L36D8DzMa+JNd68Lfgx
-      r7vTtwfklEhpTZOD4aQ1rVoFcrImQsivRZFWN9WjoXpq13S9vkzqd85jjWVr9sGSdCcEP99N
-      w7M9Nfs8WQWS1jQZAGnF0sUsc5kFilapZp95dm6IbCnPVHqOoYXRmn3urcj7ANKK/dnA3xEN
-      NDGVnuObO77GielzPLVuF9PpOHmzgN/wki0X8OgGk6lZnly3i+PTZzEtkz29O3lndICA20+T
-      L0xnKMZocopsOc9iIcng7CXGU9M0+sK8O3acz/TsoMkXqfkxyCuAtGK2cJhOx2nyhZnNzDOe
-      nOa18wf4y2Ov4NHd/PXxv8elakymZjk0doxjU4P84/BhBqbO8PbIEVLFDAeG3+XQ6DGKVokD
-      w+9yfPrcDUsmzecSLOSX+PbJ1+7IMcgASCvmUnU2t6xnLrvIL0YHCBg+LMemN9LJ5pY+Ohti
-      PBDdyOGx41e3WfSGO4gGmtEVjfHUDKliBkNz8dr5AySLmZv2cWj0A7wuD464M5MlqzfCZv/4
-      hOwFkm5LPLtIqpilLdiCwCFXLlw9WR3CnhDJYpqIt4H5XALHcQi4/ZiOhQIEDD9T6Vl+dO4A
-      39r1z4jnEgSMyn3fgOGjZJUxHQuP7mapkMLr8hDxNtS8F0gGQKqrRD5Fo2/5C2LUOgCyESyt
-      iBCCty8fIRZsockXxuvy4NHdCAQDk2do9kXIlvPs7HiQbDmPIwRelxvTNnGEwK0bmLZ5Wyf/
-      nSADIK2YoqhMpecYT07zwdQg39r1z0kVM0ymZpjNLNDsj3A2PlwJy8gR2oOt6KqOg0PJKhPx
-      hPjSpqfqegwyANKKeV1u2oNd2MLBb/gQwmFdpJP53CIdoSh5s0h3uJ3hxTF2d26nwRPEEQ6Z
-      Uo5ooIm8WWQxn6TJd/srRdaKbANI9xTZBpBWBUc4fPfUT3iiewfZcp6L81d4tOOB6l/4dZFO
-      3h0/wYambs7FL7MttomByTP8kwef41x8GF3VCXkCpItZFEWhwRMkWUizpXX9XT0OGQBpRVRF
-      JRZsIVXMMJ2J4zc8TKVnGV2aZkNTNwHDR3uolXPxywQMH0cnTpEt5xlJTKAqGqdnL1IwizT7
-      I7g1g4HsaRp9YTY09eDS7t5pKatA0oplSjm8Lg/T6Tn8ho+yVa6s+2t4UVCubncTzybY0NRN
-      0Srhc3kZS06jqxqG5qJsmyiAz/CRK+cJuv00eD5ubljFHasCKYaGYsgZYdLyhYwQAD2ero/f
-      Hqxsb2yozH8MYACwLvrxU28b+eVjfZQazw2WUyKlNU2OBZLWtOutDasE9VupRpLA5bvru7we
-      gG+/AHJ9AKleFBV+b+mu71ZWgaQ1TQZAWjYhBKZd+fdho8nKwncf5gjBaPLmOvVk2qFs3+2F
-      kG5NBkBatstLgv+wv8QfDpSxHMGhcYtUUfCD8ya2gPenbBbyDnlT8PYVm1fOmYwsORwet3CE
-      4MKCzf8dKJMurZ4AyDvB0rKFPZV1vDQF/va0SdCt8L/fKxFyK/x81Ob8gsNPLjl4dIWd7RqO
-      gJOzNq9dtMiU4edjlaVTVxN5BZCWLVuGz3ZrDCccbAEFk+r8XQF8MG0TMBQsp7IwnuXAL8Zs
-      +iIqBVNg2ZUvyl1N5BVAWrbOkMJ8TuU/7XETCyicmHH42madZFHQFlSI+hWCboVmn8LIksPu
-      jso3RFuOIBZQ2dqq4jjQ4L7zSx8tlwyAtGy6qvBYx/XRAo+2Vx77jcoJ/VD0+rZt0ZtHFayG
-      FWE+SgZAWrbLCYehhMP2qEo0oFSrPx9MO0S8CktFwcZG9ablUD/ql64DfBfJAEjLNpl26Akr
-      /OC8RcQLQsCv9rso24ILCw7vjNu89KCLoYSDqsBYyqFgQl9ERVVgOOHwrx9x0eKXAZDuQZ0h
-      leGEw69suL76I1SWOwp5FJ7o1NHVysqPpiNoC2iUHfDpCigQC1SuEi3++h7Hh8kASMu2vlFl
-      fePNHYeN3hvr9h9uJ6x2MgDSsl1Zcnhn3GJPt062LJjJClp9CgLoCCp4XQqvD1n0hRUCRmWF
-      x5BbocWvULKgaFdWfGy62l5wROWqEjDqVyWSAZCWrSOkEAuoXFx0WMw79DSoHBq30VX4V4+6
-      KFtQtgUn5wR+F0Q8CltaVN6fsol4FQambLoaVBZyglhAwRLgUhUCjTIA0j1AV+HRNo1kURDu
-      0IhnHfb2aDT7FBJ5gc+lsLVZY0OjymJBMJdzKFqVLtGCJfhcr44jYE+XwkJeULbB0Cv3CfQ6
-      1ZpkAKRlUxWFJh80+Sp/sZu8N5+11+r/Ea/Cho9pL1yzWhrC16dEmiW0VdQ/K60xCqAZd323
-      168Aqg5yTrC0xsjBcNKaVr0CvDH3CnPmdD3LIq0xX46+SMzTUdcyVANgCxtbrhMs3UWC+g+N
-      llUg6VNJzWduel7IFCkXyowcH6OUL9epZMsjAyDdUmouzf956U+xLZtX/9dPOfnWINlEjsXJ
-      JYQQxEcX+NlfHsJxHKYvzmKVLY7+8BhXTo4zNzKPoiiUciXiowsUs7VbSrWW5H0A6ZaEEMQ2
-      tHLlxDhuv0G5aPLmH/8Mw+Oi9+Fupi7OkE8XGPjRScyyxcX3Lt/w3uEPrnD+8BBNnRGyiRyf
-      /629dTyajyevANIn6n6ggyM/OMa6h7sRQrA0nUQ3dLKJLA0tQVRNJZ8usDSdxBPw3PR+l8fF
-      I1/ahnDqX9//OPIKIN2SP+xj65Mb6dnWSUtPM4VMgXUPd7MwkaB/1zpGjo/RsbmNjk0xLh65
-      TLSvBcd28AY9aC6tEggFNJfK9mcfqPfhfKzqneC/n/oOc+ZUvcsjrSFfjX2DNk9nXcsgq0DS
-      LS1OLXHxyDDp+cwNVZjpS7PMjsTrWLLakVUg6ZYWJxIEGv2cPnAOb9CDELBlb3+l3p8sMPzB
-      FVxuFwM/OkHXgx0YXoNCuoBwBG39Ufoeqd1CFneKDIB0S6GWIPPji/Q90kM+XUBzVcaKLU4u
-      0dQRQdVVCpki6x7pobkzglm2UVWFSFsYx7bJpwr4Grx1PopPJgMg3VJsfSux9a03/f6Bpzbd
-      8LznofrW4z8NGQDplhYmElw5Oc7Gx9dTypXILuUINQcp58uE2xpQFIXzh4ZoaA1imzblgkl0
-      fQu+kBfbsrEtBwR4Am5K+TLCEQQafbjcrnofWpUMgHRL4WgIf9jH2OkJsokc4bYGht+/gjfo
-      YdevP4KqKJTyJRLTNh6/GyEEs8NxQOAJeBk9NU6opRIOb9CDWTLpe6SX5q7Geh9alQyAdEuq
-      rtK5uY1cMk/PQ51kEjn6d/fhj/go5Uq4DJ3W3mYa2yOYJZNCpkhsfSvp+Qxm2WLj4+tRFIVA
-      xEc+VcC52pPk2A6qtjo6IGUApFtSVZVQS5BQS2XZ0obW0E2vWf9o702/a+lpuul3jR2/fAXI
-      eqjeCMuZ2etf9StJd4FH86Ip9Z2FKJdJlda01VERk6Q6qbYBvv/97zM9LadESp/eN77xDdra
-      2updjGWpBiCXy5FOp+tZFuk+YVn3ztRaWQWS1jQZgPuYqqp87nOf4+mnn8bj8RAMBjEMA5fL
-      hc/nwzAMdu3aRSQSQdd1QqFQdfGKr3zlK0SjUXp7e/n85z+Ppmk0NFTu/rrdbrxeL5/97GcJ
-      BAIYhkEodHMX6b1A3ge4jymKgq7rLC0toaoqO3bsIBAIMD09jdfrxeVyEQwGyefzZDIZNm/e
-      zPj4OOfPnyedTtPe3o6iKBQKBdra2ti8eTPz8/N0dnYyPj5ONBolFouhqir9/f2cOXOG8fHx
-      eh/2bZFXgPvc4OAghmGwceNGSqUSqqriOA5nzpzBNE3i8Tizs7N0dnYyOzuL11sZvWmaJi6X
-      i3K58q0OnZ2dzM3N4fF4SCaTnDlzhng8ztzcHG1tbSwsLODx3DwlcrWTV4D7mOM4BINB5ufn
-      GRsbo7+/n5mZGbLZLMVikcuXL5PL5ejq6mJoaIiGhgYSiQQAw8PDWJZFuVzG5/Nh2zZNTU3M
-      zMygqpW/m2fOnCEajTI8PIzP52Nubq6eh7siMgD3MSEEly5dqj4/e/bsDdvj8cqsrgsXLtzw
-      /KOPs9ksAIuLize8P5VKkUqlalvou0xWge5juq6zbt26aoP3GkVRaGlpqWPJVg95BbiPud1u
-      HMdhw4YNlEolQqEQZ8+epbGxkZaWFsrlMpFIpPr4WhtB13WKxeINV4/7lbwC3McsyyIYDDI3
-      N4dt29UqTCKRIJlMYpomQghSqRTJZBLHcSiXyyQSCYQQ+Hy+Oh/BnSevAPexUqnE4OAgwE0N
-      1CtXrgAwNjZ218u1msgA3Mfcbjf9/f1cvnwZx3FoaWlhfn4eTdPQdZ1sNktvby/FYhG/3086
-      naZcLpNKpdB1HU3TsCwLIQS6rmPbNkKIe2qowy8jA3AfK5VKlEol2tvb8Xg8uFwumpubURSl
-      2h2qqiqRSIRCoUBnZyepVIpwOEwul2Pbtm3VK4eiKGiaxsLCAhMTE3U+stqRAbjPxeNxFEXB
-      5XKh6zqKomCaJqZpVvvzp6enCQQCjIyMoKoqpVIJn89XvU/gOA6BQKDaHep2uymVVue3Pd8u
-      GYD73C/rpx8eHgZgaWnpht9fO9mvWVhYqG3BVonqjLDFxcX7qm4n1U9jYyMu1+r56pNPIqdE
-      SmuavA8grWnVNoA5OIWVuT8aNlJ9uLZ3oQbvrRGh1QCIXAkyxXqWRbrX2U69S3DbZBXoHlc2
-      y1xtxgGQzmUZnf34hU5KH3mtJANQVwdPvc9/++s/4I33f07ZMskV8wghKJZL5IuF6sn6xtGf
-      8+dvfK+6LXd1W6FU5A9/9LcUzTIls4xl2wxPjxMOhDAts/q6a6/9g7//G2zHIVfM4wiHsmXy
-      P/b9Gb/5+/+Zt0+8R9kyMS0L27YplIo37Ct/9XnlcQHLtiiVK/u9l8n7AHU0n0ygazpbuzfw
-      0/d/wT8ef5eXnvkKf/HmKxi6i//6zX9La7iRkZkJbMchU8jx7/7kf2LoOv/iC1/lh+/8A4vp
-      JAeOH+HgqaPs3Pggg6NDdDRHGZ2dxO1y819e+m0m5mf489e/x2I6yWtHDnB65CKbOtfxjWe+
-      zO9+7Zv8yU/28fjW7fzFT18h5A/SG23nb/b/iEwhT1dLjK888TneO3+KixNX+I0v/jpvDvyC
-      Z3Y8zk/eOwjAf/+N38XnWd3rANyKDEAd7d6yjUf6t/Lym6/Q4AvQ19bFYnqJHRu20tbYQr5Y
-      IJ5c5OiF0xi6i1OXL7Bj/WY6mqOcHx/hC49+loGLZ1AU+JfPfo0Tw+fojXbgc3v44s49/OAX
-      b7GYTjI2N82vPPYkh88eY3hqjM1dfbhdxkdKo5AvFSmbJr3Rdp57bC8jMxN8ceceTl2+gGXb
-      CASXZ8b5+p4vous6W7vXUzJN0vmsDIB0+5LZDAdPHeU3n/s6w1NjLKSX2NK9no7mGH6Pl0iw
-      gVQuze//9n8k6PVzcWKEJx7YQcDrJ+QL8MbRg2zu6mNzVx8hf4C+tuf4zoEf09bUimmZ7N7y
-      MNFIE82hCN8+8Bpbe/p5cttOvnfwp+zesh0Al+5i70M78bgMYo0taIpKT7SDlnAjHc1RYpFm
-      jE0PUSwX6Wvbw6/uepJ9P3udJ7buoKkhgkvTiUaa6/w/uXLVG2GFd4dQUrIXSFo544n1qOF7
-      aw6BbATX0fnxy4zNTTGfTFR/J4RgdHaSsmly6vIF2Wtzh8kqUB2Nzk5VxumHG9l38A2efGgn
-      W3s2cHZsmNG5aZLZNN2tbbx/8QyJdBKP4caybQLeyl/ZXDHPC3ufq36ZlXT75BWgzjxuN4qi
-      0BpuRAiBIxxyhTz+q41KAaiKgt/jpTHYQMkso6oqDf4AJbPMfCrxyTuQPpFsA0g1cy+2AWQV
-      qI5+cXqAhkCQB3v6GZmZoDfWiaoqjMdn6Im2MzU/R9kymV6ME/IFmE8mePrh3VRqPAoKlTbD
-      tSqQEAJVVWWV6DbIANRRwOdHVRS+feA1Zhbj7N7yMAdPHeXp7bsJ+QK0hBs5MXyOKzOTGC4X
-      +VKRy9PjnB0domiWyBUKLGVTbOxcR8ksMzo7xb//p78lh7XfBhmAOmprbMGtu5hbWmT35u1k
-      i3me2raL3lgHjnCYXoxTLJdY19ZJc0OE+WSCvrZO5lMJXFpl0nomnyMcCKKpGsfvQ6MAAAAv
-      SURBVK3hJuZTS8Qa791++btNtgGkmrkX2wDVAFjJHKot+5yllVMavCj6vVX9+v8h85zdEytU
-      wQAAAABJRU5ErkJggg==
+      AAADr0lEQVR4nO3dz2pdVRTH8XVyE2P9gyNBKjgW7Hs49QE68PkUdOQjiJKmOBAEQS5WSaRY
+      bWyb9Obee+5x1J032Hvw+3xGGa7JN1mBs9jTsixLQaij0QPASC2AeZ5HzgFDHL/54dufLuqv
+      /25HzgLdtQC+evRnnT25GjkLdOd/AKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgm
+      AKIJgGjtc+jPP/uoPr3/wchZoLvpzU3wPM+1Wq1GzwNdWYGI1lag329+q81yM3IW6K4F8POL
+      x/V0dzFyFujOCkQ0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARCtfQ798duf
+      1HtvvT9yFujOSSTRrEBEayvQzdlZLVceySNLW4HWDx/W7fnj0fNAV1YgogmAaAIgmgCIJgCi
+      CYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaO0e4N6DB3V8ejpyFujOSSTRrEBEayvQ7uJV7baH
+      kbNAdy2Aq+/WtX/yauQs0J0ViGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgC
+      IFr7HPr4w3dq2o8cBfpzEkk0KxDR2gq02WxGzgFDtADW63VdX1+PnAW6swIRTQBEEwDRBEA0
+      ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEa59Dn5yc1KlXIgnjJJJoViCitRXo2XZf+2ke
+      OQt011agL85/rR9fvh49D3RlBSKaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCa
+      AIjW7gHurY7q3ZUeyOIkkmh+5ROtrUDLMtfhcBg5C3TXAri8/Ka228uRs0B3ViCiCYBoAiCa
+      AIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiBaO4nc73e1chNMmHYQM01HNU1ugsni
+      Vz7R2l+AX374o66fb0bOAt3dHcUfljoclpGzQHdWIKIJgGgCIJoAiCYAogmAaAIgmgCIJgCi
+      CYBoAiCaAIgmAKIJgGjtJPL29bamaRo9D3TlmVSiWYGI1i7C6usvqy7Px00CA9wFcP2s6oVn
+      UsliBSKaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIh2dxH2z7pWe08kkcVJ
+      JNGsQERrF2HfP72qf3fzyFmguxbAy91cz7f7kbNAd1YgogmAaAIgmgCIJgCiCYBoAiCaAIgm
+      AKIJgGgCIJoAiCYAogmAaO0i7O+bTc3llUiy/A/0gM4MLB9ezgAAAABJRU5ErkJggg==
     </thumbnail>
   </thumbnails>
 </workbook>
