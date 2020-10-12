@@ -64,7 +64,7 @@ I used two python libraries: Pandas and Numpy. Then, to export the Pandas data f
 oriented to export the panda's data frame to a Tableau file, those libraries are Plandeau and Tableausdk. Finally, to visualize 
 the result data in a bar chart race I choose Tableau.
 </p>
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Colombia Covid-19 Bar Chart Race by City][product-screenshot]](https://example.com)
 
 ### Built With
 
@@ -130,7 +130,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the GNU GENERAL PUBLIC LICENSE License. See `LICENSE` for more information.
 
 
 
@@ -151,16 +151,16 @@ Project Link: [https://github.com/jjnc2006/Covid19_Colombia](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/jjnc2006/repo.svg?style=flat-square
-[contributors-url]: https://github.com/jjnc2006/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/jjnc2006/repo.svg?style=flat-square
-[forks-url]: https://github.com/jjnc2006/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/jjnc2006/repo.svg?style=flat-square
-[stars-url]: https://github.com/jjnc2006/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/jjnc2006/repo.svg?style=flat-square
-[issues-url]: https://github.com/jjnc2006/repo/issues
-[license-shield]: https://img.shields.io/github/license/jjnc2006/repo.svg?style=flat-square
-[license-url]: https://github.com/jjnc2006/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/jjnc2006/Covid19_Colombia.svg?style=flat-square
+[contributors-url]: https://github.com/jjnc2006/Covid19_Colombia/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/jjnc2006/Covid19_Colombia.svg?style=flat-square
+[forks-url]: https://github.com/jjnc2006/Covid19_Colombia/network/members
+[stars-shield]: https://img.shields.io/github/stars/jjnc2006/Covid19_Colombia.svg?style=flat-square
+[stars-url]: https://github.com/jjnc2006/Covid19_Colombia/stargazers
+[issues-shield]: https://img.shields.io/github/issues/jjnc2006/Covid19_Colombia.svg?style=flat-square
+[issues-url]: https://github.com/jjnc2006/Covid19_Colombia/issues
+[license-shield]: https://img.shields.io/github/license/jjnc2006/Covid19_Colombia.svg?style=flat-square
+[license-url]: https://github.com/jjnc2006/Covid19_Colombia/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/john-ramireztech/
 [product-screenshot]: images/screenshot.png
